@@ -1,4 +1,11 @@
 export default function PageNotFound() {
-    return <h1>404</h1>;
-  }
-  
+  return (
+    <div className="div">
+      <div className="flex justify-center mt-20">
+        <p className="text-2xl hover:text-blue-500 font-mono font-normal">
+          404 - Page Not Found
+        </p>
+      </div>
+    </div>
+  );
+}
