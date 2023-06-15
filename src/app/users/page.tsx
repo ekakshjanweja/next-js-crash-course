@@ -1,6 +1,8 @@
+import { log } from "console";
 import Link from "next/link";
 
-export default function Home() {
+export default async function UserList() {
+  const users = await getUsers();
   return (
     <div>
       <nav className="mt-10">
@@ -30,11 +32,28 @@ export default function Home() {
           </div>
         </div>
       </nav>
-      <div className="flex justify-center mt-20">
+
+      <div className="flex-col justify-center mt-20 max-w-xs mx-auto">
         <p className="text-2xl hover:text-blue-500 font-mono font-normal">
-          Next Js Pre Rendering.
+          List Of Users
+        </p>
+        <p className="text-lg hover:text-blue-500 font-mono font-normal">
+          {users.map((user: any) => {
+            return (
+              <p className="text-lg hover:text-blue-500 font-mono font-normal">
+                {user.name}
+              </p>
+            );
+          })}
         </p>
       </div>
     </div>
   );
 }
+
+const getUsers = async () => {
+  const apiResponse = await fetch("https://jsonplaceholder.typicode.com/users");
+  const result = await apiResponse.json();
+
+  return result;
+};
