@@ -33,15 +33,15 @@ export default async function UserList() {
         </div>
       </nav>
 
-      <div className="flex-col justify-center mt-20 max-w-xs mx-auto">
+      <div className="flex-col justify-center mt-20 max-w-xl mx-auto">
         <p className="text-2xl hover:text-blue-500 font-mono font-normal">
           List Of Users
         </p>
-        <p className="text-lg hover:text-blue-500 font-mono font-normal">
+        <p className="text-lg  font-mono font-normal">
           {users.map((user: any) => {
             return (
-              <p className="text-lg hover:text-blue-500 font-mono font-normal">
-                {user.name}
+              <p className="text-lg hover:text-yellow-500 font-mono font-normal">
+                Name:{user.name} Email:{user.email}
               </p>
             );
           })}
