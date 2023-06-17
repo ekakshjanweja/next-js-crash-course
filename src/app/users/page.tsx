@@ -1,5 +1,6 @@
 import { log } from "console";
 import Link from "next/link";
+import User from "../../../components/user";
 
 export default async function UserList() {
   const users = await getUsers();
@@ -39,11 +40,7 @@ export default async function UserList() {
         </p>
         <p className="text-lg  font-mono font-normal">
           {users.map((user: any) => {
-            return (
-              <p className="text-lg hover:text-yellow-500 font-mono font-normal">
-                Name:{user.name} Email:{user.email}
-              </p>
-            );
+            return <User user={user} />;
           })}
         </p>
       </div>
